@@ -6,6 +6,8 @@ import { WeatherData } from "@/src/types/weather";
 // Importamos iconos profesionales
 import { Sun, Cloud, CloudRain, Wind, Droplets, MapPin, Loader2 } from "lucide-react";
 
+import { getTravelAdvice } from "@/src/utils/advice";
+
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -52,6 +54,13 @@ export default function Home() {
       });
     }
   };
+
+  const getBackgroundClass = () => {
+  const hour = new Date().getHours();
+  if (hour >= 6 && hour < 12) return "from-amber-200 via-blue-400 to-blue-600"; // Mañana
+  if (hour >= 12 && hour < 19) return "from-blue-500 via-blue-700 to-indigo-900"; // Tarde
+  return "from-slate-900 via-purple-900 to-black"; // Noche
+};
 
   // Esto hace que la ubicación se pida apenas abres la app
   useEffect(() => {
@@ -142,8 +151,40 @@ export default function Home() {
             </div>
           </div>
 
+          {weather && (
+  <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    {/* Card Clima Actual */}
+    <div className={`md:col-span-2 bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 flex flex-col justify-between transition-all duration-1000 bg-gradient-to-br ${getBackgroundClass()}`}>
+      
+      <div>
+        <h2 className="text-4xl font-bold">{weather.name}</h2>
+        <p className="text-white/80 capitalize text-lg">{weather.weather[0].description}</p>
+      </div>
+
+      <div className="flex items-center justify-between mt-6">
+        <span className="text-9xl font-thin tracking-tighter">{Math.round(weather.main.temp)}°</span>
+        
+        {/* NUEVO: Cuadro de Sugerencia Inteligente */}
+        <div className="max-w-[200px] bg-white/20 backdrop-blur-lg p-4 rounded-2xl border border-white/30 shadow-xl transform hover:rotate-2 transition-transform">
+          <p className="text-xs uppercase font-black mb-1 opacity-70">Sugerencia Pro</p>
+          <div className="text-2xl mb-1">{getTravelAdvice(weather.main.temp, weather.weather[0].main.toLowerCase()).icon}</div>
+          <p className="text-sm leading-tight font-medium">
+            {getTravelAdvice(weather.main.temp, weather.weather[0].main.toLowerCase()).message}
+          </p>
+        </div>
+      </div>
+      
+      {/* ... resto de los datos (humedad, viento) */}
+    </div>
+
+    {/* ... columna de pronóstico */}
+  </div>
+)}
+
         </div>
       )}
+      
     </main>
   );
 }

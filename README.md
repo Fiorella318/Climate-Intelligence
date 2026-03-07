@@ -37,49 +37,53 @@ Follow these steps to set up and run the project in your local environment:
 
 ### 1. Clone the repository
 First, clone the project to your local machine:
-
-git clone [https://github.com/your-username/climate-intelligence.git](https://github.com/your-username/climate-intelligence.git)
+```bash
+git clone [https://climate-intelligence.vercel.app/](https://climate-intelligence.vercel.app/)
 cd climate-intelligence
+```
 
 ### 2. Install Dependencies
 Install all the necessary packages and libraries mentioned in the Tech Stack:
-
-Bash
+```bash
 npm install
 This command installs core dependencies like recharts, framer-motion, lucide-react, and clsx.
+```
 
-3. Environment Setup
+### 3. Environment Setup
 You need an API Key from OpenWeatherMap. Once you have it, create a file named .env.local in the root directory of the project and add your key:
-
+```bash
 NEXT_PUBLIC_WEATHER_API_KEY=your_api_key_here
-4. Run Development Server
-To start the application in development mode, run:
+```
 
-Bash
+### 4. Run Development Server
+To start the application in development mode, run:
+```bash
 npm run dev
 Open http://localhost:3000 in your browser to see the results.
+```
 
-5. Build for Production
+### 5. Build for Production
 To create an optimized production build:
-
-Bash
+```bash
 npm run build
 npm start
-📂 Project Structure
+```
+
+## 📂 Project Structure
 To maintain clean code and separate concerns, the project follows this directory structure:
 
-/src/app: Contains the core application logic, layouts, and page views (Next.js App Router).
+**/src/app:** Contains the core application logic, layouts, and page views (Next.js App Router).
 
-/src/services: Handles all API integration and data fetching logic with OpenWeatherMap.
+**/src/services:** Handles all API integration and data fetching logic with OpenWeatherMap.
 
-/src/utils: Contains the business logic for the Smart Travel Advisor algorithm.
+**/src/utils:** Contains the business logic for the Smart Travel Advisor algorithm.
 
-/src/components: Reusable UI components such as the WeatherSkeleton and HourlyChart.
+**/src/components:** Reusable UI components such as the WeatherSkeleton and HourlyChart.
 
-/src/types: TypeScript interfaces and types to ensure data consistency across the app.
+**/src/types:** TypeScript interfaces and types to ensure data consistency across the app.
 
-👩‍💻 Author
-Fiorella
+## 👩‍💻 Author
+### Fiorella
 Software Developer focused on building intuitive, data-driven, and user-centric web experiences.
 
-This project was developed for educational and professional portfolio purposes.
+*This project was developed for educational and professional portfolio purposes.*

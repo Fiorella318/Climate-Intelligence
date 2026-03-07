@@ -13,13 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkyGuide | Inteligencia para tus Viajes",
-  description: "Consulta el clima en tiempo real, pronóstico por horas y consejos inteligentes sobre qué empacar para tu próximo destino.",
-  keywords: ["clima", "viajes", "pronóstico", "nextjs", "react"],
-  authors: [{ name: "Fiorella" }],
+
+  metadataBase: new URL('https://climate-intelligence.vercel.app/'),
+
+  title: "Climate Intelligence | Intelligence for your travels",
+  description: "Check real-time weather, hourly forecasts, and smart tips on what to pack for your next destination.",
+  keywords: ["weather", "travel", "forecast", "nextjs", "react"],
+  authors: [{ name: "Fiorella Rios Campos" }],
   openGraph: {
-    title: "SkyGuide - Travel Intelligence",
-    description: "No dejes que el clima te sorprenda. Planifica tu maleta con SkyGuide.",
+    title: "Climate Intelligence",
+    description: "Don't let the weather catch you off guard. Plan your trip with SkyGuide.",
     type: "website",
     images: ["./preview.png"], 
   },

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Fiorella Rios Campos" }],
   openGraph: {
     title: "Climate Intelligence",
-    description: "Don't let the weather catch you off guard. Plan your trip with SkyGuide.",
+    description: "Don't let the weather catch you off guard. Plan your trip with Climate Intelligence.",
     type: "website",
     images: ["./preview.png"], 
   },

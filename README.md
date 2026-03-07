@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌤️ Climate Intelligence - Travel Intelligence Platform
 
-## Getting Started
+**Climate Intelligence** is a high-performance weather forecasting application designed specifically for travelers. Unlike conventional weather apps, SkyGuide leverages custom logic to provide smart clothing recommendations and travel activity suggestions based on real-time meteorological data and 24-hour trends.
 
-First, run the development server:
+🚀 **Live Demo:** [https://climate-intelligence.vercel.app/](https://climate-intelligence.vercel.app/)
 
-```bash
+---
+
+## ✨ Key Features
+
+* **Global Search:** Real-time weather data for any city worldwide using the OpenWeatherMap API.
+* **Smart Travel Advisor:** A granular algorithm that suggests outfits (linen, wool, layers) and activities (museums during rain, outdoor parks during sun).
+* **Data Visualization:** Interactive **Area Charts** showing temperature trends for the next 24 hours.
+* **Extended Forecast:** Detailed 5-day weather outlook with visual icons and temperature ranges.
+* **Premium UX/UI:** Fully responsive design featuring **Glassmorphism**, smooth **Framer Motion** animations, and unit switching (°C/°F).
+* **Performance:** Optimized loading states with **Skeleton Screens** for a seamless user experience.
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+This project is built with a modern tech stack focused on performance, type safety, and scalability:
+
+* **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+* **Language:** [TypeScript](https://www.typescriptlang.org/) (Static Typing)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Utility-first CSS)
+* **Data Viz:** [Recharts](https://recharts.org/) (Interactive charts)
+* **Animations:** [Framer Motion](https://www.framer.com/motion/) (Production-ready motion)
+* **Icons:** [Lucide React](https://lucide.dev/) (Consistent iconography)
+* **API:** [OpenWeatherMap API](https://openweathermap.org/api)
+
+---
+
+## 🚀 Getting Started & Installation
+
+Follow these steps to set up and run the project in your local environment:
+
+### 1. Clone the repository
+First, clone the project to your local machine:
+
+git clone [https://github.com/your-username/climate-intelligence.git](https://github.com/your-username/climate-intelligence.git)
+cd climate-intelligence
+
+### 2. Install Dependencies
+Install all the necessary packages and libraries mentioned in the Tech Stack:
+
+Bash
+npm install
+This command installs core dependencies like recharts, framer-motion, lucide-react, and clsx.
+
+3. Environment Setup
+You need an API Key from OpenWeatherMap. Once you have it, create a file named .env.local in the root directory of the project and add your key:
+
+NEXT_PUBLIC_WEATHER_API_KEY=your_api_key_here
+4. Run Development Server
+To start the application in development mode, run:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to see the results.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Build for Production
+To create an optimized production build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bash
+npm run build
+npm start
+📂 Project Structure
+To maintain clean code and separate concerns, the project follows this directory structure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/src/app: Contains the core application logic, layouts, and page views (Next.js App Router).
 
-## Learn More
+/src/services: Handles all API integration and data fetching logic with OpenWeatherMap.
 
-To learn more about Next.js, take a look at the following resources:
+/src/utils: Contains the business logic for the Smart Travel Advisor algorithm.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/src/components: Reusable UI components such as the WeatherSkeleton and HourlyChart.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/src/types: TypeScript interfaces and types to ensure data consistency across the app.
 
-## Deploy on Vercel
+👩‍💻 Author
+Fiorella
+Software Developer focused on building intuitive, data-driven, and user-centric web experiences.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out the preview: [https://climate-intelligence.vercel.app/](https://climate-intelligence.vercel.app/)
+This project was developed for educational and professional portfolio purposes.

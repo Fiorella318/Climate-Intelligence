@@ -31,3 +31,15 @@ export const getForecastData = async (city: string) => {
   
   return dailyData;
 };
+
+export const getHourlyData = async (city: string) => {
+  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric&lang=es`;
+
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Error en datos horarios");
+  
+  const data = await response.json();
+  // Tomamos las primeras 8 lecturas (cada una es de 3 horas, así que cubrimos 24 horas)
+  return data.list.slice(0, 8); 
+};

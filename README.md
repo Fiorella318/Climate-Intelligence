@@ -3,6 +3,7 @@
 **Climate Intelligence** is a high-performance weather forecasting application designed specifically for travelers. Unlike conventional weather apps, SkyGuide leverages custom logic to provide smart clothing recommendations and travel activity suggestions based on real-time meteorological data and 24-hour trends.
 
 🚀 **Live Demo:** [https://climate-intelligence.vercel.app/](https://climate-intelligence.vercel.app/)
+[Live Demo](https://climate-intelligence.vercel.app/){:target="_blank"}
 
 ---
 

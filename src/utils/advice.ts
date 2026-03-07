@@ -1,15 +1,15 @@
 export const getTravelAdvice = (temp: number, condition: string) => {
   if (condition.includes("rain") || condition.includes("drizzle")) {
-    return { message: "Lleva un paraguas y calzado impermeable.", icon: "🌂" };
+    return { message: "Bring an umbrella and waterproof shoes.", icon: "🌂" };
   }
   if (temp > 28) {
-    return { message: "Clima caluroso. No olvides protector solar y agua.", icon: "☀️" };
+    return { message: "Hot weather. Don't forget sunscreen and water.", icon: "☀️" };
   }
   if (temp < 10) {
-    return { message: "Hace frío. Empaca un abrigo pesado y bufanda.", icon: "❄️" };
+    return { message: "It's cold. Pack a heavy coat and scarf.", icon: "❄️" };
   }
   if (temp >= 10 && temp <= 22) {
-    return { message: "Clima templado. Una chaqueta ligera será suficiente.", icon: "🧥" };
+    return { message: "Mild weather. A light jacket will be sufficient.", icon: "🧥" };
   }
-  return { message: "Clima agradable para explorar. ¡Disfruta el viaje!", icon: "🌍" };
+  return { message: "Gentle weather for exploring. Enjoy the trip!", icon: "🌍" };
 };

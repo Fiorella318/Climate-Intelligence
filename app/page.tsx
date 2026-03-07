@@ -27,7 +27,7 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [forecast, setForecast] = useState<any[]>([]);
-  const [hourly, setHourly] = useState<any[]>([]); // Nuevo estado para las horas
+  const [hourly, setHourly] = useState<any[]>([]); 
   const [loading, setLoading] = useState(false);
   const [recentCities, setRecentCities] = useState<string[]>([]);
   const [unit, setUnit] = useState<"C" | "F">("C");
@@ -72,7 +72,7 @@ export default function Home() {
         return updated;
       });
     } catch (error) {
-      alert("Error al obtener datos");
+      alert("Error retrieving data. Please check the city name and try again.");
     } finally {
       setLoading(false);
     }
@@ -81,7 +81,7 @@ export default function Home() {
   const shareOnWhatsApp = () => {
     if (!weather) return;
     const advice = getTravelAdvice(weather.main.temp, weather.weather[0].main.toLowerCase());
-    const text = `🌍 *SkyGuide Plan*: Voy a ${weather.name}. Estará a ${displayTemp(weather.main.temp)}°${unit}. Mi recomendación: ${advice.message}`;
+    const text = `🌍 *Climate Intelligence Plan*: I'll be at ${weather.name}. It will be ${displayTemp(weather.main.temp)}°${unit}. My recommendation: ${advice.message}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -96,7 +96,7 @@ export default function Home() {
     <main className={`flex flex-col items-center min-h-screen p-4 transition-all duration-1000 bg-gradient-to-br ${getBackgroundClass()} text-white font-sans`}>
       
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center my-10">
-        <h1 className="text-5xl font-black tracking-tighter mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">SkyGuide</h1>
+        <h1 className="text-5xl font-black tracking-tighter mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">Climate Intelligence</h1>
         <p className="text-blue-100/80 font-medium italic">Travel Intelligence Platform</p>
       </motion.div>
       
@@ -105,7 +105,7 @@ export default function Home() {
           <div className="flex-1 flex bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-1">
             <input
               type="text"
-              placeholder="Buscar destino..."
+              placeholder="Find a destination..."
               className="flex-1 bg-transparent p-3 outline-none placeholder:text-slate-400"
               value={city}
               onChange={(e) => setCity(e.target.value)}
@@ -119,7 +119,7 @@ export default function Home() {
             </button>
           </div>
           <button onClick={() => handleSearch()} className="bg-blue-500 hover:bg-blue-400 px-8 rounded-2xl font-bold transition-all">
-            {loading ? <Loader2 className="animate-spin" /> : "Buscar"}
+            {loading ? <Loader2 className="animate-spin" /> : "Search"}
           </button>
         </div>
 
@@ -159,7 +159,7 @@ export default function Home() {
                 </span>
                 
                 <div className="max-w-[180px] bg-white/20 backdrop-blur-lg p-4 rounded-2xl border border-white/30 shadow-xl rotate-2">
-                  <p className="text-[10px] uppercase font-black mb-1 opacity-70 tracking-widest text-blue-200">Sugerencia Pro</p>
+                  <p className="text-[10px] uppercase font-black mb-1 opacity-70 tracking-widest text-blue-200">Pro Suggestion</p>
                   <div className="text-2xl mb-1">
                      {getTravelAdvice(weather.main.temp, weather.weather[0].main.toLowerCase()).icon}
                   </div>
@@ -174,11 +174,11 @@ export default function Home() {
             <div className="bg-white/5 backdrop-blur-sm p-6 rounded-3xl border border-white/10 h-[280px] shadow-xl">
               <div className="flex items-center gap-2 mb-4 opacity-60">
                 <Clock size={14} />
-                <h4 className="text-xs font-bold uppercase tracking-tighter">Pronóstico por horas (°{unit})</h4>
+                <h4 className="text-xs font-bold uppercase tracking-tighter">Hourly forecast (°{unit})</h4>
               </div>
               <ResponsiveContainer width="100%" height="85%">
                 <AreaChart data={hourly.map(h => ({ 
-                  time: new Date(h.dt * 1000).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' }), 
+                  time: new Date(h.dt * 1000).toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit' }), 
                   temp: displayTemp(h.main.temp) 
                 }))}>
                   <defs>
@@ -202,12 +202,12 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
             className="bg-black/20 backdrop-blur-md p-6 rounded-3xl border border-white/5 shadow-2xl h-full"
           >
-            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 underline decoration-blue-500 underline-offset-8 text-center">Próximos días</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 underline decoration-blue-500 underline-offset-8 text-center">Next few days</h3>
             <div className="space-y-6">
               {forecast.map((day, index) => (
                 <div key={index} className="flex items-center justify-between group">
                   <span className="text-slate-300 group-hover:text-white transition-colors capitalize text-sm">
-                    {new Date(day.dt * 1000).toLocaleDateString('es', { weekday: 'long' })}
+                    {new Date(day.dt * 1000).toLocaleDateString('en', { weekday: 'long' })}
                   </span>
                   <div className="flex items-center gap-2">
                     <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="icon" className="w-8 h-8" />
